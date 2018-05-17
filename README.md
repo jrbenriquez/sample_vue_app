@@ -1,7 +1,8 @@
 # jrbenriquez
 
 > Sample App created with Vue
-> App will run on 0.0.0.0:8000
+
+**App will run on 0.0.0.0:8000 / localhost:8000**
 ## Build Setup
 
 ``` bash
