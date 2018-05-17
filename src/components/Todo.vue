@@ -6,8 +6,9 @@
     <div>Write down what you want done</div>
     <input type='text' v-on:keyup.enter="addTask" v-model='newTask'>
     <ul id="tasklist">
-        <li v-for="task in tasks" :key="task">
-            {{ task }}
+        <li v-for="task in tasks" :key="task" >
+            <span :class="{ done: task.done}">{{ task.name }}</span>
+            <input type="checkbox" v-model="task.done">
         </li>
     </ul>
   </div>
@@ -25,7 +26,11 @@ export default {
   },
   methods: {
     addTask: function (e) {
-      this.tasks.push(this.newTask)
+      this.tasks.push({
+        name: this.newTask,
+        done: false
+      })
+      this.newTask = ''
     }
   }
 }
@@ -70,6 +75,10 @@ li a {
 li a:hover {
   font-size: 30px;
   background: #f6f6f6;
+}
+
+.done {
+    text-decoration: line-through;
 }
 </style>
 /* eslint-enable no-alert */
